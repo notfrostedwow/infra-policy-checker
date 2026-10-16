@@ -1,0 +1,27 @@
+infra-policy-checker 1.0.0
+Selected planned AWS settings only; no cloud or effective IAM verification.
+Coverage: 4 supported, 1 skipped, 0 deferred; plan completeness: complete.
+SKIP IPC-COVERAGE [note] aws_security_group_rule.example
+  Resource was not evaluated by a supported policy.
+  identity_sha256=6a129e253ed84f76917e47ff8464e33a48500f92c7cca0fc2e7cd847b6aba642 pointer=/resource_changes/3
+  reason=egress
+UNKNOWN AWS-IAM-001 [high] aws_iam_role_policy.example
+  Relevant planned evidence is missing, null, computed or outside supported syntax.
+  identity_sha256=7d70198f284a654edd06eea51454f5948f6182474a661ec93ddba7d8798c0d6d pointer=/resource_changes/4
+  Relevant evidence remains incomplete.
+FAIL AWS-IAM-002 [medium] aws_iam_role_policy.example
+  An Allow resource is exactly "*"; some AWS actions require this scope.
+  identity_sha256=7d70198f284a654edd06eea51454f5948f6182474a661ec93ddba7d8798c0d6d pointer=/resource_changes/4
+  Relevant evidence remains incomplete.
+FAIL AWS-ENC-002 [medium] aws_db_instance.example
+  Explicit RDS storage encryption policy is unmet; live storage is unassessed.
+  identity_sha256=b00dee62ddf5b453c9e1a16523027ce840822094ba7564614b3523d712fb94fe pointer=/resource_changes/1
+FAIL AWS-S3-001 [medium] aws_s3_bucket_public_access_block.example
+  An explicit S3 public access block setting is false; effective exposure is unassessed.
+  identity_sha256=b3048e2690f2850f61637ffdc05e760b1f18f9d03f192ef136c701f98c2b00c7 pointer=/resource_changes/2
+  Relevant evidence remains incomplete.
+PASS AWS-ENC-001 [medium] aws_ebs_volume.example
+  Supported planned evidence meets this local policy check.
+  identity_sha256=e32c95ee443a48dbf00bad840800d47fc9c275efa649f6e2a630a719e83d345a pointer=/resource_changes/0
+Checks: PASS=1, FAIL=3, UNKNOWN=1, SKIP=1
+Exit: 1 (fail-on medium).

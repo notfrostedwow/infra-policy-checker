@@ -1,0 +1,74 @@
+{
+  "coverage": {
+    "addresses_suppressed_for_sensitivity": false,
+    "by_rule": {
+      "AWS-ENC-001": {
+        "FAIL": 0,
+        "PASS": 0,
+        "SKIP": 0,
+        "UNKNOWN": 0
+      },
+      "AWS-ENC-002": {
+        "FAIL": 0,
+        "PASS": 0,
+        "SKIP": 0,
+        "UNKNOWN": 0
+      },
+      "AWS-IAM-001": {
+        "FAIL": 0,
+        "PASS": 0,
+        "SKIP": 0,
+        "UNKNOWN": 0
+      },
+      "AWS-IAM-002": {
+        "FAIL": 0,
+        "PASS": 0,
+        "SKIP": 0,
+        "UNKNOWN": 0
+      },
+      "AWS-NET-001": {
+        "FAIL": 0,
+        "PASS": 0,
+        "SKIP": 0,
+        "UNKNOWN": 0
+      },
+      "AWS-S3-001": {
+        "FAIL": 0,
+        "PASS": 0,
+        "SKIP": 0,
+        "UNKNOWN": 0
+      },
+      "IPC-COVERAGE": {
+        "FAIL": 0,
+        "PASS": 0,
+        "SKIP": 0,
+        "UNKNOWN": 0
+      }
+    },
+    "deferred_resources": 0,
+    "no_supported_checks": true,
+    "outcomes": {
+      "FAIL": 0,
+      "PASS": 0,
+      "SKIP": 0,
+      "UNKNOWN": 0
+    },
+    "plan_completeness": "complete",
+    "plan_errored": false,
+    "skip_reasons": {},
+    "skipped_resources": 0,
+    "supported_checks": 0,
+    "supported_resources": 0,
+    "total_resources": 0,
+    "unresolved": true
+  },
+  "execution_successful": true,
+  "exit_code": 3,
+  "fail_on": "medium",
+  "results": [],
+  "scope": "Selected planned AWS settings only; no cloud or effective IAM verification.",
+  "tool": {
+    "name": "infra-policy-checker",
+    "version": "1.0.0"
+  }
+}

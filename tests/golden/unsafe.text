@@ -1,0 +1,23 @@
+infra-policy-checker 1.0.0
+Selected planned AWS settings only; no cloud or effective IAM verification.
+Coverage: 5 supported, 0 skipped, 0 deferred; plan completeness: complete.
+FAIL AWS-NET-001 [high] aws_security_group.example
+  Planned ingress permits unrestricted SSH or RDP; reachability is unassessed.
+  identity_sha256=116c44cdb8423cde11135d14d2c48310442f36baa4db2aa0540bddd3e84d2700 pointer=/resource_changes/0
+FAIL AWS-IAM-001 [high] aws_iam_policy.example
+  An Allow action contains wildcard syntax; effective permissions are unassessed.
+  identity_sha256=28387b5a51d94be9edbe696e57e6f51783aef783d9b8395d32d3989dfb607d05 pointer=/resource_changes/4
+FAIL AWS-IAM-002 [medium] aws_iam_policy.example
+  An Allow resource is exactly "*"; some AWS actions require this scope.
+  identity_sha256=28387b5a51d94be9edbe696e57e6f51783aef783d9b8395d32d3989dfb607d05 pointer=/resource_changes/4
+FAIL AWS-ENC-002 [medium] aws_db_instance.example
+  Explicit RDS storage encryption policy is unmet; live storage is unassessed.
+  identity_sha256=b00dee62ddf5b453c9e1a16523027ce840822094ba7564614b3523d712fb94fe pointer=/resource_changes/3
+FAIL AWS-S3-001 [medium] aws_s3_bucket_public_access_block.example
+  An explicit S3 public access block setting is false; effective exposure is unassessed.
+  identity_sha256=b3048e2690f2850f61637ffdc05e760b1f18f9d03f192ef136c701f98c2b00c7 pointer=/resource_changes/1
+FAIL AWS-ENC-001 [medium] aws_ebs_volume.example
+  Explicit EBS encryption policy is unmet; defaults and inheritance are unassessed.
+  identity_sha256=e32c95ee443a48dbf00bad840800d47fc9c275efa649f6e2a630a719e83d345a pointer=/resource_changes/2
+Checks: PASS=0, FAIL=6, UNKNOWN=0, SKIP=0
+Exit: 1 (fail-on medium).

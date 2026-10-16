@@ -1,0 +1,117 @@
+{
+  "complete": true,
+  "errored": false,
+  "format_version": "1.2",
+  "planned_values": {},
+  "resource_changes": [
+    {
+      "address": "aws_security_group.example",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "after": {
+          "ingress": [
+            {
+              "cidr_blocks": [
+                "0.0.0.0/0"
+              ],
+              "from_port": 0,
+              "ipv6_cidr_blocks": [],
+              "protocol": "tcp",
+              "to_port": 65535
+            }
+          ]
+        },
+        "after_sensitive": {},
+        "after_unknown": {},
+        "before": null,
+        "before_sensitive": false
+      },
+      "mode": "managed",
+      "name": "example",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "type": "aws_security_group"
+    },
+    {
+      "address": "aws_s3_bucket_public_access_block.example",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "after": {
+          "block_public_acls": true,
+          "block_public_policy": false,
+          "ignore_public_acls": true,
+          "restrict_public_buckets": true
+        },
+        "after_sensitive": {},
+        "after_unknown": {},
+        "before": null,
+        "before_sensitive": false
+      },
+      "mode": "managed",
+      "name": "example",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "type": "aws_s3_bucket_public_access_block"
+    },
+    {
+      "address": "aws_ebs_volume.example",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "after": {
+          "encrypted": false
+        },
+        "after_sensitive": {},
+        "after_unknown": {},
+        "before": null,
+        "before_sensitive": false
+      },
+      "mode": "managed",
+      "name": "example",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "type": "aws_ebs_volume"
+    },
+    {
+      "address": "aws_db_instance.example",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "after": {
+          "storage_encrypted": false
+        },
+        "after_sensitive": {},
+        "after_unknown": {},
+        "before": null,
+        "before_sensitive": false
+      },
+      "mode": "managed",
+      "name": "example",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "type": "aws_db_instance"
+    },
+    {
+      "address": "aws_iam_policy.example",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "after": {
+          "policy": "{\"Version\": \"2012-10-17\", \"Statement\": {\"Effect\": \"Allow\", \"Action\": [\"s3:*\", \"iam:*AccessKey?\", \"ec2:DescribeInstances\"], \"Resource\": \"*\", \"Condition\": {\"Bool\": {\"aws:SecureTransport\": \"true\"}}}}"
+        },
+        "after_sensitive": {},
+        "after_unknown": {},
+        "before": null,
+        "before_sensitive": false
+      },
+      "mode": "managed",
+      "name": "example",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "type": "aws_iam_policy"
+    }
+  ],
+  "terraform_version": "1.9.0"
+}

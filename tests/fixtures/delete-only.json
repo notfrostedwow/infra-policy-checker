@@ -1,0 +1,26 @@
+{
+  "complete": true,
+  "errored": false,
+  "format_version": "1.2",
+  "planned_values": {},
+  "resource_changes": [
+    {
+      "address": "aws_ebs_volume.example",
+      "change": {
+        "actions": [
+          "delete"
+        ],
+        "after": null,
+        "after_sensitive": {},
+        "after_unknown": {},
+        "before": null,
+        "before_sensitive": false
+      },
+      "mode": "managed",
+      "name": "example",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "type": "aws_ebs_volume"
+    }
+  ],
+  "terraform_version": "1.9.0"
+}

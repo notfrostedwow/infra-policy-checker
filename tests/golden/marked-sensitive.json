@@ -1,0 +1,273 @@
+{
+  "coverage": {
+    "addresses_suppressed_for_sensitivity": true,
+    "by_rule": {
+      "AWS-ENC-001": {
+        "FAIL": 1,
+        "PASS": 0,
+        "SKIP": 0,
+        "UNKNOWN": 0
+      },
+      "AWS-ENC-002": {
+        "FAIL": 1,
+        "PASS": 0,
+        "SKIP": 0,
+        "UNKNOWN": 0
+      },
+      "AWS-IAM-001": {
+        "FAIL": 1,
+        "PASS": 0,
+        "SKIP": 0,
+        "UNKNOWN": 0
+      },
+      "AWS-IAM-002": {
+        "FAIL": 1,
+        "PASS": 0,
+        "SKIP": 0,
+        "UNKNOWN": 0
+      },
+      "AWS-NET-001": {
+        "FAIL": 1,
+        "PASS": 0,
+        "SKIP": 0,
+        "UNKNOWN": 0
+      },
+      "AWS-S3-001": {
+        "FAIL": 1,
+        "PASS": 0,
+        "SKIP": 0,
+        "UNKNOWN": 0
+      },
+      "IPC-COVERAGE": {
+        "FAIL": 0,
+        "PASS": 0,
+        "SKIP": 0,
+        "UNKNOWN": 0
+      }
+    },
+    "deferred_resources": 0,
+    "no_supported_checks": false,
+    "outcomes": {
+      "FAIL": 6,
+      "PASS": 0,
+      "SKIP": 0,
+      "UNKNOWN": 0
+    },
+    "plan_completeness": "complete",
+    "plan_errored": false,
+    "skip_reasons": {},
+    "skipped_resources": 0,
+    "supported_checks": 6,
+    "supported_resources": 5,
+    "total_resources": 5,
+    "unresolved": false
+  },
+  "execution_successful": true,
+  "exit_code": 1,
+  "fail_on": "medium",
+  "results": [
+    {
+      "actions": [
+        "create"
+      ],
+      "address": "<sensitive-resource>",
+      "deposed": false,
+      "evidence": [
+        {
+          "pointer": "/resource_changes/0/change/after/ingress",
+          "state": "known"
+        },
+        {
+          "pointer": "/resource_changes/0/change/after/ingress/0",
+          "state": "known"
+        },
+        {
+          "pointer": "/resource_changes/0/change/after/ingress/0/protocol",
+          "state": "known"
+        },
+        {
+          "pointer": "/resource_changes/0/change/after/ingress/0/from_port",
+          "state": "known"
+        },
+        {
+          "pointer": "/resource_changes/0/change/after/ingress/0/to_port",
+          "state": "known"
+        },
+        {
+          "pointer": "/resource_changes/0/change/after/ingress/0/cidr_blocks",
+          "state": "known"
+        },
+        {
+          "pointer": "/resource_changes/0/change/after/ingress/0/cidr_blocks/0",
+          "state": "known"
+        },
+        {
+          "pointer": "/resource_changes/0/change/after/ingress/0/ipv6_cidr_blocks",
+          "state": "known"
+        }
+      ],
+      "evidence_truncated": false,
+      "identity_sha256": "4555a1488b31012e0b0a8582ae8b95e18751e0124aa627e81f53a2c5e53899b5",
+      "incomplete_evidence": false,
+      "message": "Planned ingress permits unrestricted SSH or RDP; reachability is unassessed.",
+      "outcome": "FAIL",
+      "pointer": "/resource_changes/0",
+      "reason": "",
+      "resource_type": "aws_security_group",
+      "rule_id": "AWS-NET-001",
+      "severity": "high"
+    },
+    {
+      "actions": [
+        "create"
+      ],
+      "address": "<sensitive-resource>",
+      "deposed": false,
+      "evidence": [
+        {
+          "pointer": "/resource_changes/1/change/after/block_public_acls",
+          "state": "known"
+        },
+        {
+          "pointer": "/resource_changes/1/change/after/ignore_public_acls",
+          "state": "known"
+        },
+        {
+          "pointer": "/resource_changes/1/change/after/block_public_policy",
+          "state": "known"
+        },
+        {
+          "pointer": "/resource_changes/1/change/after/restrict_public_buckets",
+          "state": "known"
+        }
+      ],
+      "evidence_truncated": false,
+      "identity_sha256": "873bf3755f21966efa577f6d92ff7a368fd7d4306605828f707d8b1c443259f5",
+      "incomplete_evidence": false,
+      "message": "An explicit S3 public access block setting is false; effective exposure is unassessed.",
+      "outcome": "FAIL",
+      "pointer": "/resource_changes/1",
+      "reason": "",
+      "resource_type": "aws_s3_bucket_public_access_block",
+      "rule_id": "AWS-S3-001",
+      "severity": "medium"
+    },
+    {
+      "actions": [
+        "create"
+      ],
+      "address": "<sensitive-resource>",
+      "deposed": false,
+      "evidence": [
+        {
+          "pointer": "/resource_changes/3/change/after/storage_encrypted",
+          "state": "known"
+        }
+      ],
+      "evidence_truncated": false,
+      "identity_sha256": "9665eb5e828523e6ec44a45be0f4e6e1502ace986aa3addca45722f7164d9a57",
+      "incomplete_evidence": false,
+      "message": "Explicit RDS storage encryption policy is unmet; live storage is unassessed.",
+      "outcome": "FAIL",
+      "pointer": "/resource_changes/3",
+      "reason": "",
+      "resource_type": "aws_db_instance",
+      "rule_id": "AWS-ENC-002",
+      "severity": "medium"
+    },
+    {
+      "actions": [
+        "create"
+      ],
+      "address": "<sensitive-resource>",
+      "deposed": false,
+      "evidence": [
+        {
+          "pointer": "/resource_changes/2/change/after/encrypted",
+          "state": "known"
+        }
+      ],
+      "evidence_truncated": false,
+      "identity_sha256": "abeacb767bd41544cde273295d928afeed06d392989964cd62b462e6c632d65a",
+      "incomplete_evidence": false,
+      "message": "Explicit EBS encryption policy is unmet; defaults and inheritance are unassessed.",
+      "outcome": "FAIL",
+      "pointer": "/resource_changes/2",
+      "reason": "",
+      "resource_type": "aws_ebs_volume",
+      "rule_id": "AWS-ENC-001",
+      "severity": "medium"
+    },
+    {
+      "actions": [
+        "create"
+      ],
+      "address": "<sensitive-resource>",
+      "deposed": false,
+      "evidence": [
+        {
+          "pointer": "/resource_changes/4/change/after/policy",
+          "state": "known"
+        },
+        {
+          "embedded_policy_pointer": "/Statement/Action",
+          "pointer": "/resource_changes/4/change/after/policy",
+          "state": "known"
+        },
+        {
+          "embedded_policy_pointer": "/Statement/Resource",
+          "pointer": "/resource_changes/4/change/after/policy",
+          "state": "known"
+        }
+      ],
+      "evidence_truncated": false,
+      "identity_sha256": "b0bca2e634d81d4bda52d9dbd1e89410b3af1ed24780ffaf7a2ec49321ecec75",
+      "incomplete_evidence": false,
+      "message": "An Allow action contains wildcard syntax; effective permissions are unassessed.",
+      "outcome": "FAIL",
+      "pointer": "/resource_changes/4",
+      "reason": "",
+      "resource_type": "aws_iam_policy",
+      "rule_id": "AWS-IAM-001",
+      "severity": "high"
+    },
+    {
+      "actions": [
+        "create"
+      ],
+      "address": "<sensitive-resource>",
+      "deposed": false,
+      "evidence": [
+        {
+          "pointer": "/resource_changes/4/change/after/policy",
+          "state": "known"
+        },
+        {
+          "embedded_policy_pointer": "/Statement/Action",
+          "pointer": "/resource_changes/4/change/after/policy",
+          "state": "known"
+        },
+        {
+          "embedded_policy_pointer": "/Statement/Resource",
+          "pointer": "/resource_changes/4/change/after/policy",
+          "state": "known"
+        }
+      ],
+      "evidence_truncated": false,
+      "identity_sha256": "b0bca2e634d81d4bda52d9dbd1e89410b3af1ed24780ffaf7a2ec49321ecec75",
+      "incomplete_evidence": false,
+      "message": "An Allow resource is exactly \"*\"; some AWS actions require this scope.",
+      "outcome": "FAIL",
+      "pointer": "/resource_changes/4",
+      "reason": "",
+      "resource_type": "aws_iam_policy",
+      "rule_id": "AWS-IAM-002",
+      "severity": "medium"
+    }
+  ],
+  "scope": "Selected planned AWS settings only; no cloud or effective IAM verification.",
+  "tool": {
+    "name": "infra-policy-checker",
+    "version": "1.0.0"
+  }
+}

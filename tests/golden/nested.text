@@ -1,0 +1,23 @@
+infra-policy-checker 1.0.0
+Selected planned AWS settings only; no cloud or effective IAM verification.
+Coverage: 5 supported, 0 skipped, 0 deferred; plan completeness: complete.
+PASS AWS-IAM-001 [high] aws_iam_policy.example
+  Supported planned evidence meets this local policy check.
+  identity_sha256=28387b5a51d94be9edbe696e57e6f51783aef783d9b8395d32d3989dfb607d05 pointer=/resource_changes/4
+PASS AWS-IAM-002 [medium] aws_iam_policy.example
+  Supported planned evidence meets this local policy check.
+  identity_sha256=28387b5a51d94be9edbe696e57e6f51783aef783d9b8395d32d3989dfb607d05 pointer=/resource_changes/4
+PASS AWS-NET-001 [high] module.edge["<redacted>"].module.worker[2].aws_security_group.example[0]
+  Supported planned evidence meets this local policy check.
+  identity_sha256=64ecbdeb502d0eaa90de7fd05cde91badc21aa528b8ed873432549b6a7b73dc2 pointer=/resource_changes/0
+PASS AWS-ENC-002 [medium] aws_db_instance.example
+  Supported planned evidence meets this local policy check.
+  identity_sha256=b00dee62ddf5b453c9e1a16523027ce840822094ba7564614b3523d712fb94fe pointer=/resource_changes/3
+PASS AWS-S3-001 [medium] aws_s3_bucket_public_access_block.example
+  Supported planned evidence meets this local policy check.
+  identity_sha256=b3048e2690f2850f61637ffdc05e760b1f18f9d03f192ef136c701f98c2b00c7 pointer=/resource_changes/1
+PASS AWS-ENC-001 [medium] aws_ebs_volume.example
+  Supported planned evidence meets this local policy check.
+  identity_sha256=e32c95ee443a48dbf00bad840800d47fc9c275efa649f6e2a630a719e83d345a pointer=/resource_changes/2
+Checks: PASS=6, FAIL=0, UNKNOWN=0, SKIP=0
+Exit: 0 (fail-on medium).

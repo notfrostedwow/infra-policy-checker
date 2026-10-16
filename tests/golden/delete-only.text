@@ -1,0 +1,10 @@
+infra-policy-checker 1.0.0
+Selected planned AWS settings only; no cloud or effective IAM verification.
+Coverage: 0 supported, 1 skipped, 0 deferred; plan completeness: complete.
+NO SUPPORTED CHECKS; infrastructure is unassessed.
+SKIP IPC-COVERAGE [note] aws_ebs_volume.example
+  Resource was not evaluated by a supported policy.
+  identity_sha256=e32c95ee443a48dbf00bad840800d47fc9c275efa649f6e2a630a719e83d345a pointer=/resource_changes/0
+  reason=delete_only
+Checks: PASS=0, FAIL=0, UNKNOWN=0, SKIP=1
+Exit: 3 (fail-on medium).

@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+.coverage
+.venv/
+plan.json
+*.tfplan
+*.tfstate*
+reports/
+.ipc-test-*/

@@ -1,0 +1,32 @@
+name: Illustrative offline checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  synthetic-review:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.11', '3.12', '3.13']
+    steps:
+      - uses: actions/checkout@v6.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6.1.0
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Compile
+        run: python -m compileall -q infra_policy_checker tests tools
+      - name: Unit and CLI tests
+        run: python -m unittest discover -v
+      - name: Assert documented statuses including 1, 2 and 3
+        run: python tools/verify_smokes.py
+      - name: Verify source manifest
+        run: python tools/manifest.py --check

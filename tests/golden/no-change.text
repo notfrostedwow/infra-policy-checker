@@ -1,0 +1,6 @@
+infra-policy-checker 1.0.0
+Selected planned AWS settings only; no cloud or effective IAM verification.
+Coverage: 0 supported, 0 skipped, 0 deferred; plan completeness: complete.
+NO SUPPORTED CHECKS; infrastructure is unassessed.
+Checks: PASS=0, FAIL=0, UNKNOWN=0, SKIP=0
+Exit: 3 (fail-on medium).
