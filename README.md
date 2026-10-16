@@ -47,7 +47,8 @@ python3 -m infra_policy_checker scan tests/fixtures/computed.json --format sarif
 ~~~
 
 Nonzero scan statuses are part of the interface. Guard expected failures when
-using shell "exit on error". Linux and other Python versions await CI verification.
+using shell "exit on error". Linux Python 3.11, 3.12 and 3.13 passed remote CI;
+independent Linux Python 3.14.8 checks also passed (details below).
 
 ## Input contract
 
@@ -139,7 +140,9 @@ contents or invocation command lines.
 SARIF has logical locations and JSON Pointers, stable rule indices/fingerprints,
 and no invented .tf file or line 1. Logical-only interchange does **not** promise
 GitHub code-scanning display, which requires physical locations. There is no
-upload-sarif workflow. Structural tests are not full official-schema validation.
+upload-sarif workflow. Independent QA validated all eight golden and eight runtime
+SARIF reports against the official SARIF 2.1.0 schema and checked result kind/level
+conformance with sections 3.27.9-3.27.10; this is not a code-scanning upload test.
 
 --output saves the same report still written to stdout. Serialization and bounds
 precede a same-directory temporary write plus atomic replacement. Input aliases/
@@ -187,7 +190,10 @@ flowchart LR
 Included illustrative CI runs synthetic tests with contents: read, no persisted
 checkout credentials, project dependencies, uploads, Terraform or AWS access.
 GitHub runner/actions setup requires networking; runtime/tests do not.
-Remote CI has not run. There are no unearned badges or cloud-validation claims.
+[Remote CI run 38945361276](https://github.com/notfrostedwow/infra-policy-checker/actions/runs/38945361276)
+passed every job and step on commit
+[690df849](https://github.com/notfrostedwow/infra-policy-checker/commit/690df849fa9e5013d300ab4dca111b9f5499f8a0),
+using Linux Python 3.11, 3.12 and 3.13. These are offline checks, not cloud validation.
 
 ## Verification
 
@@ -198,9 +204,15 @@ python tools/verify_smokes.py
 python tools/manifest.py --check
 ~~~
 
-Use python3 on Linux. [Recorded local results](docs/verification.md) distinguish
-Windows verification from future platform/schema QA. Tests compare all 24
-checked-in golden text/JSON/SARIF reports and CLI statuses. Maintainers can
+Use python3 on Linux. [Recorded local results](docs/verification.md) preserve
+the dated Windows verification and repair history. Independent Linux Python 3.14.8
+QA of the source tree published at 690df849 passed all 82 tests, 24 golden CLI
+comparisons, 14 documented smokes and 389 additional assertions, including official
+SARIF schema and kind/level checks. Non-fail results use level none; fail results
+retain error/warning levels. The old reporter produced six regression assertion
+failures; the repaired reporter passed. No AWS access or live deployment was tested.
+
+Tests compare all 24 checked-in golden text/JSON/SARIF reports and CLI statuses. Maintainers can
 explicitly regenerate originals with python tools/refresh_examples.py; tests
 never rewrite expectations.
 
